@@ -1,0 +1,23 @@
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes.dex : \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/borismus/webintent/WebIntent.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/BuildConfig.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/HelloWorld.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/R$attr.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/R$drawable.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/R$string.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/R$xml.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/com/phonegap/helloworld/R.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$1.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$2.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$3.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$4.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$1.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$2.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$3.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$4.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5$5.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$5.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser$InAppBrowserClient.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppBrowser.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/classes/org/apache/cordova/inappbrowser/InAppChromeClient.class \
+/Applications/XAMPP/xamppfiles/htdocs/wandoujia/wandou_now/platforms/android/bin/dexedLibs/classes-8c9de7536804cb76aa5e8083254dcfaa.jar \
