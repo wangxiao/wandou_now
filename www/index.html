@@ -27,14 +27,18 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-        </div>
+        <div class="app"></div>
+
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="js/baidu-template.js"></script>
         <script type="text/javascript" src="js/wandoujia-api.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-            wandoujiaApi.dianping();
+        <script type="text/javascript" src="js/main.js"></script>
+        <script id="dianping-tpl" type="template">
+            <ul class="dianping">
+                <%for(var i =0, l = list.length; i < l; i += 1) {%>
+                    <li><%=list[i]['name']%></li>
+                <%}%>
+            </ul>
         </script>
     </body>
 </html>
