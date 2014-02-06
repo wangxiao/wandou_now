@@ -1,21 +1,4 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
+// phonegap API
 var app = {
     // Application Constructor
     initialize: function() {
@@ -35,16 +18,6 @@ var app = {
     onDeviceReady: function() {
 
         app.receivedEvent('deviceready');
-        setTimeout(function() {
-            window.plugins.webintent.startActivity({
-                action: window.plugins.webintent.ACTION_VIEW,
-                url: 'dianping://shopinfo?id=4175436'
-            }, function() {
-
-            }, function() {
-                alert('Failed to open URL via Android Intent');
-            });
-        }, 1000);
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -56,5 +29,34 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    }
+};
+
+// 豌豆荚的 API
+var wandoujiaApi = {
+    dianping: function() {
+        return $.ajax({
+            type: 'get',
+            url: 'http://192.168.108.151:8089/shop',
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            timeout: 10000
+        }).done(function(list) {
+        }).fail(function(xhr, status, error) {
+        });
+    }
+};
+
+// 基础方法
+var baseApi = {
+    openApp: function(url) {
+        window.plugins.webintent.startActivity({
+            action: window.plugins.webintent.ACTION_VIEW,
+            url: url
+            // url: 'dianping://shopinfo?id=4175436'
+        }, function() {
+        }, function() {
+        });
     }
 };
