@@ -70,7 +70,10 @@ var wandoujiaApi = {
                 data.list = list;
                 var tpl = baidu.template('douban-tpl', data);
                 $('.app').append(tpl);
-
+                $('.douban-id').on('click',function() {
+                    var id = $(this).attr('data-id');
+                    wandoujiaApi.openDoubanMovie(id);
+                });
                 $('#doubanSlider').slider({arrow:false, dots:false});
             },
             error: function(xhr, type){}
@@ -89,7 +92,10 @@ var wandoujiaApi = {
                 data.list = list;
                 var tpl = baidu.template('video-tpl', data);
                 $('.app').append(tpl);
-
+                $('.movie-id').on('click',function() {
+                    var id = $(this).attr('data-id');
+                    wandoujiaApi.openWandoujiaMovie(id);
+                });
                 $('#videoSlider').slider({arrow:false, dots:false});
             },
             error: function(xhr, type){}

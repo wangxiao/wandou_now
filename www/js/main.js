@@ -84,8 +84,8 @@ void function() {
     }
 
     // 主逻辑
-    getLocation();
-    var mapFunction = createNewMap('普天德胜大厦', getDestination());
+    // getLocation();
+    // var mapFunction = createNewMap('普天德胜大厦', getDestination());
     createDianping();
     createDouban();
     createVideo();
