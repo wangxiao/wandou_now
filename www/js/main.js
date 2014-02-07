@@ -38,8 +38,28 @@ void function() {
         // 百度地图API功能
         var map = new BMap.Map("map-wrapper");
         map.addControl(new BMap.MapTypeControl());
-        map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
-        var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+        var driving = new BMap.DrivingRoute(map, {
+            renderOptions:{
+                map: map, 
+                autoViewport: true
+            },
+            onSearchComplete: function(results) {
+                var plan = results.getPlan(0);
+                // plan.getDistance(true)
+                var time = plan.getDuration(true);
+                var ele = $('#map-block');
+                ele.find('.time').text(time);
+                ele.find('.destination').text(end);
+                var url = 'http://api.map.baidu.com/direction?destination='+ end +'&mode=driving&region=北京&output=html';
+                ele.find('.map-href').attr('href', encodeURIComponent(url));
+                ele.show();
+
+                setTimeout(function() {
+                    map.setCenter(new BMap.Point(116.375254, 40.00393));   //设置地图中心点。center除了可以为坐标点以外，还支持城市名
+                    map.setZoom(11);
+                }, 500);
+            }
+        });
         driving.search(from, end);
     }
 
@@ -47,7 +67,6 @@ void function() {
     createDianping();
     createNewMap('普天德胜大厦', '西二旗');
     createDouban();
-    
 }();
 
 // }, false);

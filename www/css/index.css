@@ -138,6 +138,10 @@ body:after {
 }
 
 /* 地图 */
+#map-block{
+    display: none;
+}
+
 #map-wrapper {
     width: 100%;
     height: 200px;
