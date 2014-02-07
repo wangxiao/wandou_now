@@ -52,7 +52,7 @@ var wandoujiaApi = {
                     baseApi.openApp(url);
                 });
 
-                $('#slider').slider({loop:true});
+                $('#dianpingSlider').slider({arrow:false, dots:false});
             },
             error: function(xhr, type){}
         });
@@ -70,6 +70,8 @@ var wandoujiaApi = {
                 data.list = list;
                 var tpl = baidu.template('douban-tpl', data);
                 $('.app').append(tpl);
+
+                $('#doubanSlider').slider({arrow:false, dots:false});
             },
             error: function(xhr, type){}
         });
@@ -87,6 +89,8 @@ var wandoujiaApi = {
                 data.list = list;
                 var tpl = baidu.template('video-tpl', data);
                 $('.app').append(tpl);
+
+                $('#videoSlider').slider({arrow:false, dots:false});
             },
             error: function(xhr, type){}
         });

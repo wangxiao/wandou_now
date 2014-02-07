@@ -20,7 +20,7 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="dianping" id="slider">
+                    <ul class="dianping" id="dianpingSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
                         <li class="d-item">
                             <div class="d-wrapper">
@@ -77,7 +77,7 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="douban">
+                    <ul class="douban" id="doubanSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
@@ -108,7 +108,7 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="douban">
+                    <ul class="douban" id="videoSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {
                         if (list[i]['actors']) {
                     %>
