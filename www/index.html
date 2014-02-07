@@ -104,22 +104,18 @@
                 </div>
                 <div class="box-shadow">
                     <ul class="douban">
-                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {
+                        if (list[i]['actors']) {
+                    %>
                         <li class="d-item">
-                            <img src="<%=list[i]['cover'].l%>" class="b-img" alt="<%=list[i]['title']%>"/>
-                            <p class="d-name"><%=list[i]['title']%></p>
-                            <p class="b-actors">
-                                <%for(var j = 0; j < list[i]['actors'].length; j += 1) {%>
-                                    <span class="d-tags"><%=list[i]['actors'][j]%></span>
-                                <%}%>
-                            </p>
-                            <p class="b-duration"><%=list[i]['downloadCount']%> 人已观看</p>
+                            <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
+                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="b-actors"><%=list[i]['actors']%></p>
+                            <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
                             <a href="<%=list[i]['click']%>" class="v-fly">播放</a>
-                            <p class="v-comment">
-                                『<%=list[i]['marketComments'][0]['comments'][0]['comment']%>』
-                            </p>
                         </li>
-                    <%}%>
+                    <%}
+                    }%>
                     </ul>
                     <div class="s-footer">
                         <img src="http://img.wdjimg.com/branding/icon.png" alt="豌豆荚" class="f-icon">
