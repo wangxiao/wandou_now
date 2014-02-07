@@ -36,7 +36,7 @@ var wandoujiaApi = {
     dianping: function() {
         return $.ajax({
             type: 'get',
-            url: 'http://192.168.108.151:8089/shop',
+            url: 'http://now.wandoulabs.com/shop',
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
