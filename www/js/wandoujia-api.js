@@ -70,11 +70,14 @@ var wandoujiaApi = {
         });
     },
     openWandoujiaMovie: function(movieId) {
-        alert(movieId);
         cordova.exec(function(args) {
         }, function(args) {
-            
         }, 'WebIntent', 'wandou', [movieId]);
+    },
+    openDoubanMovie: function(id) {
+        cordova.exec(function(args) {
+        }, function(args) {
+        }, 'WebIntent', 'douban', [id]);
     }
 };
 

@@ -50,15 +50,17 @@
         <!-- 大众点评模板 end -->
         <!-- 地图模板 -->
         <script id="map-tpl" type="template">
-            <div class="foods section">
+            <div id="map-block" class="foods section">
                 <div class="s-title">
-                    <p>22</p>
+                    <p>
+                        <span class="time"></span>到达<span class="destination">西二旗</span>
+                    </p>
                 </div>
                 <div id="map-wrapper"></div>
                 <div class="s-footer">
                     <img src="http://img.wdjimg.com/mms/icon/v1/7/48/d2c98435b7a6e1b67887d4418f4fe487_48_48.png" alt="百度地图" class="f-icon">
                 </div>
-                <div class="d-fly">详细地址</div>
+                <a class="map-href d-fly">详细地址</a>
             </div>
         </script>
         <!-- 地图模板 end -->
@@ -82,7 +84,7 @@
                             </p>
                             <p class="b-actors"><%=list[i]['actors']%></p>
                             <p class="b-duration"><%=list[i]['duration']%></p>
-                            <a href="<%=list[i]['click']%>" class="b-fly">购票</a>
+                            <p class="douban-id b-fly" data-id="<%=list[i]['id']%>">购票</p>
                         </li>
                     <%}%>
                     </ul>
@@ -102,22 +104,18 @@
                 </div>
                 <div class="box-shadow">
                     <ul class="douban">
-                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {
+                        if (list[i]['actors']) {
+                    %>
                         <li class="d-item">
-                            <img src="<%=list[i]['cover'].l%>" class="b-img" alt="<%=list[i]['title']%>"/>
-                            <p class="d-name"><%=list[i]['title']%></p>
-                            <p class="b-actors">
-                                <%for(var j = 0; j < list[i]['actors'].length; j += 1) {%>
-                                    <span class="d-tags"><%=list[i]['actors'][j]%></span>
-                                <%}%>
-                            </p>
-                            <p class="b-duration"><%=list[i]['downloadCount']%> 人已观看</p>
-                            <a href="<%=list[i]['click']%>" class="v-fly">播放</a>
-                            <p class="v-comment">
-                                『<%=list[i]['marketComments'][0]['comments'][0]['comment']%>』
-                            </p>
+                            <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
+                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="b-actors"><%=list[i]['actors']%></p>
+                            <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
+                            <p class="movie-id v-fly" data-id="<%=list[i]['id']%>">播放</p>
                         </li>
-                    <%}%>
+                    <%}
+                    }%>
                     </ul>
                     <div class="s-footer">
                         <img src="http://img.wdjimg.com/branding/icon.png" alt="豌豆荚" class="f-icon">

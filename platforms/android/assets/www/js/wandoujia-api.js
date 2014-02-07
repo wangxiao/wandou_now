@@ -68,6 +68,16 @@ var wandoujiaApi = {
         }).done(function(list) {
         }).fail(function(xhr, status, error) {
         });
+    },
+    openWandoujiaMovie: function(movieId) {
+        cordova.exec(function(args) {
+        }, function(args) {
+        }, 'WebIntent', 'wandou', [movieId]);
+    },
+    openDoubanMovie: function(id) {
+        cordova.exec(function(args) {
+        }, function(args) {
+        }, 'WebIntent', 'douban', [id]);
     }
 };
 
@@ -81,5 +91,14 @@ var baseApi = {
         }, function() {
         }, function() {
         });
+    },
+    getLocation: function() {
+        var dfd = $.Deferred();
+        navigator.geolocation.getCurrentPosition(function(position) {
+            dfd.resolve(position);
+        }, function() {
+            dfd.reject();
+        });
+        return dfd;
     }
 };

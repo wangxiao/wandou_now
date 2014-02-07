@@ -27,6 +27,10 @@ void function() {
             data.list = list;
             var tpl = baidu.template('douban-tpl', data);
             appWrapper.append(tpl);
+            $('.douban-id').on('click',function() {
+                var id = $(this).attr('data-id');
+                wandoujiaApi.openDoubanMovie(id);
+            });
         }).fail(function(xhr, status, error) {
             console.log(status, error);
         });
@@ -40,7 +44,7 @@ void function() {
             var tpl = baidu.template('video-tpl', data);
             appWrapper.append(tpl);
             $('.movie-id').on('click',function() {
-                id = $(this).attr('data-id');
+                var id = $(this).attr('data-id');
                 wandoujiaApi.openWandoujiaMovie(id);
             });
 

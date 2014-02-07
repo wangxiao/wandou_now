@@ -30,7 +30,7 @@ body:after {
         -webkit-transform: scale(1,1);
     }
     50% {
-        -webkit-transform: scale(2,2);
+        -webkit-transform: scale(1.2,1.2);
     }
     100% {
         -webkit-transform: scale(1,1);
@@ -41,7 +41,7 @@ keyframes popup {
         -webkit-transform: scale(1,1);
     }
     50% {
-        -webkit-transform: scale(2,2);
+        -webkit-transform: scale(1.2,1.2);
     }
     100% {
         -webkit-transform: scale(1,1);
@@ -167,6 +167,9 @@ keyframes popup {
     overflow: hidden;
     margin:0;
 }
+.map-href {
+    display: none;
+}
 /* douban */
 .movie .s-title, .movie .s-circle:after {
     background: rgb(82,200,182);
@@ -215,11 +218,6 @@ keyframes popup {
 }
 .video .s-circle {
     border-color: rgb(254,193,83);
-}
-.v-comment {
-    line-height: 1;
-    margin-top: 5px;
-    color: #aaa;
 }
 .v-fly {
     display: inline-block;
