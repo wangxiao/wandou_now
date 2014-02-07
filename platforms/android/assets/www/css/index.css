@@ -25,28 +25,6 @@ body:after {
     top: 0;
     left: 11px;
 }
-@-webkit-keyframes popup {
-    0% {
-        -webkit-transform: scale(1,1);
-    }
-    50% {
-        -webkit-transform: scale(1.2,1.2);
-    }
-    100% {
-        -webkit-transform: scale(1,1);
-    }
-}
-keyframes popup {
-    0% {
-        -webkit-transform: scale(1,1);
-    }
-    50% {
-        -webkit-transform: scale(1.2,1.2);
-    }
-    100% {
-        -webkit-transform: scale(1,1);
-    }
-}
 /* section */
 .section {
     margin: 20px 10px 20px 25px;
@@ -59,7 +37,7 @@ keyframes popup {
     padding: 0 20px;
     margin: 0 0 20px 10px;
     color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 .s-title:after {
     content: '';
@@ -80,8 +58,6 @@ keyframes popup {
     top: 4px;
     left: -33px;
     z-index: 99;
-    -webkit-animation: popup 2s infinite;
-    animation: popup 2s infinite;
 }
 .s-circle:after {
     content: '';
@@ -111,18 +87,20 @@ keyframes popup {
 }
 .dianping {
     margin: 0;
-    padding: 0 15px;
+    padding: 0;
     background: #f9f9f9;
     list-style-type: none;
 }
 .d-item {
-    border-bottom: 1px solid #eaeaea;
-    line-height: 2;
     padding: 15px 0;
+    line-height: 2;
     position: relative;
 }
 .d-item:last-child {
     border-bottom: none;
+}
+.d-wrapper {
+    margin-left: 15px;
 }
 .d-name {
     font-size: 15px;
@@ -147,14 +125,14 @@ keyframes popup {
     content: '';
 }
 .d-fly {
-    margin-top: 28px;
+    margin-top: 35px;
     position: absolute;
     line-height: 30px;
     width: 70px;
     text-align: center;
     background: #3baa24;
     top: 0;
-    right: 0;
+    right: 15px;
     text-decoration: none;
     color: #fff;
 }
@@ -227,4 +205,23 @@ keyframes popup {
     text-decoration: none;
     color: #fff;
     margin: 10px 0;
+}
+
+.ui-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.ui-slider-group {
+    overflow: hidden;
+    position: relative;
+    white-space:nowrap;
+    -webkit-transform: translateZ(0);
+}
+
+.ui-slider-item {
+    position: relative;
+    float:left;
+    overflow: hidden;
+    -webkit-box-sizing:border-box;
 }

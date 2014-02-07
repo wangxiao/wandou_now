@@ -19,35 +19,42 @@
                     <p><span class="number"><%=list.length%></span>&nbsp;处美食推荐</p>
                     <div class="s-circle"></div>
                 </div>
-                <div class="box-shadow">
-                    <ul class="dianping">
+                <div class="box-shadow" id="dianpingSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <%if(i%2 === 0){%>
+                        <ul class="dianping">
+                        <%}%>
                         <li class="d-item">
-                            <p class="d-name"><%=list[i]['name']%></p>
-                            <p class="d-rate">
-                                <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
-                                    <i class="icon-star"></i>
-                                <%}%>
-                            </p>
-                            <p class="d-meta">
-                                <span class="d-distance"><%=list[i]['distance']%></span>
-                                &nbsp;&nbsp;
-                                <i class="icon-tags"></i>
-                                <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
-                                    <span class="d-tags"><%=list[i]['tags'][j]%></span>
-                                <%}%>
-                            </p>
+                            <div class="d-wrapper">
+                                <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
+                                <p class="d-rate">
+                                    <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
+                                        <i class="icon-star"></i>
+                                    <%}%>
+                                </p>
+                                <p class="d-meta">
+                                    <span class="d-distance"><%=list[i]['distance']%></span>
+                                    &nbsp;&nbsp;
+                                    <i class="icon-tags"></i>
+                                    <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
+                                        <span class="d-tags"><%=list[i]['tags'][j]%></span>
+                                    <%}%>
+                                </p>
+                            </div>
                             <span data-url="<%=list[i]['link']%>" class="d-fly">去看看</span>
                         </li>
+                        <%if(i%2 === 1){%>
+                        </ul>
+                        <%}%>
                     <%}%>
-                    </ul>
-                    <div class="s-footer">
-                        <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
-                    </div>
+                </div>
+                <div class="s-footer">
+                    <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
                 </div>
             </div>
         </script>
         <!-- 大众点评模板 end -->
+
         <!-- 地图模板 -->
         <script id="map-tpl" type="template">
             <div id="map-block" class="foods section">
@@ -67,6 +74,7 @@
             </div>
         </script>
         <!-- 地图模板 end -->
+
         <!-- 豆瓣模板 -->
         <script id="douban-tpl" type="template">
             <div class="movie section">
@@ -74,12 +82,14 @@
                     <p>近期热映电影</p>
                     <div class="s-circle"></div>
                 </div>
-                <div class="box-shadow">
-                    <ul class="douban">
+                <div class="box-shadow" id="doubanSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <%if(i%2 === 0){%>
+                        <ul class="douban">
+                        <%}%>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                             <p class="d-rate">
                                 <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
                                     <i class="icon-star"></i>
@@ -89,15 +99,18 @@
                             <p class="b-duration"><%=list[i]['duration']%></p>
                             <p class="douban-id b-fly" data-id="<%=list[i]['id']%>">购票</p>
                         </li>
+                        <%if(i%2 === 1){%>
+                        </ul>
+                        <%}%>
                     <%}%>
-                    </ul>
-                    <div class="s-footer">
-                        <img src="http://img.wdjimg.com/mms/icon/v1/9/f4/e2fed53a563d696d990484de34729f49_48_48.png" alt="豆瓣电影" class="f-icon">
-                    </div>
+                </div>
+                <div class="s-footer">
+                    <img src="http://img.wdjimg.com/mms/icon/v1/9/f4/e2fed53a563d696d990484de34729f49_48_48.png" alt="豆瓣电影" class="f-icon">
                 </div>
             </div>
         </script>
         <!-- 豆瓣模板 end -->
+
         <!-- 视频模板 -->
         <script id="video-tpl" type="template">
             <div class="video section">
@@ -106,13 +119,13 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="douban">
+                    <ul class="douban" id="videoSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {
                         if (list[i]['actors']) {
                     %>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                             <p class="b-actors"><%=list[i]['actors']%></p>
                             <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
                             <p class="movie-id v-fly" data-id="<%=list[i]['id']%>">播放</p>
@@ -127,10 +140,31 @@
             </div>
         </script>
         <!-- 视频模板 end -->
+
         <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/zepto.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript">
+        jQuery.noConflict();
+        </script>
         <script type="text/javascript" src="js/baidu-template.js"></script>
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=C94103323d2134d9ba04374134db6919"></script>
+        <script src="http://code.baidu.com/touch-0.2.11-min.js"></script>
+
+        <!--组件依赖js begin-->
+        <script type="text/javascript" src="js/touch.js"></script>
+        <script type="text/javascript" src="js/matchMedia.js"></script>
+        <script type="text/javascript" src="js/event.ortchange.js"></script>
+        <script type="text/javascript" src="js/parseTpl.js"></script>
+        <script type="text/javascript" src="js/gmu.js"></script>
+        <script type="text/javascript" src="js/event.js"></script>
+        <script type="text/javascript" src="js/widget.js"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
+        <script type="text/javascript" src="js/arrow.js"></script>
+        <script type="text/javascript" src="js/dots.js"></script>
+        <script type="text/javascript" src="js/$touch.js"></script>
+        <!--组件依赖js end-->
+
         <script type="text/javascript" src="js/wandoujia-api.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
 

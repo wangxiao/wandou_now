@@ -34,39 +34,33 @@ var app = {
 // 豌豆荚的 API
 var wandoujiaApi = {
     dianping: function() {
-        return $.ajax({
+        return jQuery.ajax({
             type: 'get',
             url: 'http://now.wandoulabs.com/shop',
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
             timeout: 10000
-        }).done(function(list) {
-        }).fail(function(xhr, status, error) {
         });
     },
     douban: function() {
-        return $.ajax({
+        return jQuery.ajax({
             type: 'get',
             url: 'http://now.wandoulabs.com/movie',
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
             timeout: 10000
-        }).done(function(list) {
-        }).fail(function(xhr, status, error) {
         });
     },
     video: function() {
-        return $.ajax({
+        return jQuery.ajax({
             type: 'get',
             url: 'http://now.wandoulabs.com/video',
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
             timeout: 10000
-        }).done(function(list) {
-        }).fail(function(xhr, status, error) {
         });
     },
     openWandoujiaMovie: function(movieId) {
@@ -93,7 +87,7 @@ var baseApi = {
         });
     },
     getLocation: function() {
-        var dfd = $.Deferred();
+        var dfd = jQuery.Deferred();
         navigator.geolocation.getCurrentPosition(function(position) {
             dfd.resolve(position);
         }, function() {
