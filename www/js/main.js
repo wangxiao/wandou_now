@@ -11,6 +11,11 @@ void function() {
             data.list = list;
             var tpl = baidu.template('dianping-tpl', data);
             appWrapper.append(tpl);
+
+            $('body').on('click', '.d-fly', function () {
+                var url = $(this).data('url');
+                baseApi.openApp(url);
+            });
         }).fail(function() {
 
         });
