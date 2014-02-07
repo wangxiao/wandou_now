@@ -63,7 +63,6 @@ void function() {
         // 百度地图API功能
         var map = new BMap.Map("map-wrapper");
         map.addControl(new BMap.MapTypeControl());
-
         function search(from, end) {
             var driving = new BMap.DrivingRoute(map, {
                 renderOptions:{
@@ -71,7 +70,7 @@ void function() {
                     autoViewport: true
                 },
                 onSearchComplete: function(results) {
-                    map.reset();
+                    map.clearOverlays();
                     var plan = results.getPlan(0);
                     // plan.getDistance(true)
                     var time = plan.getDuration(true);
