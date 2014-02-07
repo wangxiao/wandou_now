@@ -32,6 +32,18 @@ void function() {
         });
     }
 
+    // 豆瓣电影
+    function createVideo() {
+        wandoujiaApi.video().done(function(list) {
+            var data = {};
+            data.list = list;
+            var tpl = baidu.template('video-tpl', data);
+            appWrapper.append(tpl);
+        }).fail(function(xhr, status, error) {
+            console.log(status, error);
+        });
+    }
+
     // 生成地图
     function createNewMap(from, end) {
         var tpl = baidu.template('map-tpl');
@@ -77,6 +89,8 @@ void function() {
     createDianping();
     createNewMap('普天德胜大厦', '西二旗');
     createDouban();
+    createVideo();
+    
 }();
 
 // }, false);

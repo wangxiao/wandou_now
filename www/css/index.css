@@ -21,11 +21,10 @@ body:after {
     position: absolute;
     height: 100%;
     width: 4px;
-    background: #ccc;
+    background: #ddd;
     top: 0;
     left: 11px;
 }
-
 /* section */
 .section {
     margin: 20px 10px 20px 25px;
@@ -64,12 +63,12 @@ body:after {
     content: '';
     position: absolute;
     background: #3baa24;
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 100%;
     top: 50%;
     left: 50%;
-    margin: -3px 0 0 -3px;
+    margin: -4px 0 0 -4px;
     z-index: 99;
 }
 .s-footer {
@@ -180,4 +179,31 @@ body:after {
     background: #52C8B6;
     text-decoration: none;
     color: #fff;
+}
+
+/* video */
+
+.video .s-title, .video .s-circle:after {
+    background: rgb(254,193,83);
+}
+.video .s-title:after {
+    border-right-color: rgb(254,193,83);
+}
+.video .s-circle {
+    border-color: rgb(254,193,83);
+}
+.v-comment {
+    line-height: 1;
+    margin-top: 5px;
+    color: #aaa;
+}
+.v-fly {
+    display: inline-block;
+    line-height: 30px;
+    width: 70px;
+    text-align: center;
+    background: rgb(254,193,83);
+    text-decoration: none;
+    color: #fff;
+    margin: 10px 0;
 }

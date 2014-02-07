@@ -11,11 +11,8 @@
     </head>
     <body>
         <div class="app"></div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-        <script type="text/javascript" src="js/baidu-template.js"></script>
-        <script type="text/javascript" src="js/wandoujia-api.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+
+        <!-- 大众点评模板 -->
         <script id="dianping-tpl" type="template">
             <div class="foods section">
                 <div class="s-title">
@@ -50,6 +47,22 @@
                 </div>
             </div>
         </script>
+        <!-- 大众点评模板 end -->
+        <!-- 地图模板 -->
+        <script id="map-tpl" type="template">
+            <div class="foods section">
+                <div class="s-title">
+                    <p>22</p>
+                </div>
+                <div id="map-wrapper"></div>
+                <div class="s-footer">
+                    <img src="http://img.wdjimg.com/mms/icon/v1/7/48/d2c98435b7a6e1b67887d4418f4fe487_48_48.png" alt="百度地图" class="f-icon">
+                </div>
+                <div class="d-fly">详细地址</div>
+            </div>
+        </script>
+        <!-- 地图模板 end -->
+        <!-- 豆瓣模板 -->
         <script id="douban-tpl" type="template">
             <div class="movie section">
                 <div class="s-title">
@@ -79,5 +92,46 @@
                 </div>
             </div>
         </script>
+        <!-- 豆瓣模板 end -->
+        <!-- 视频模板 -->
+        <script id="video-tpl" type="template">
+            <div class="video section">
+                <div class="s-title">
+                    <p>大家正在看的视频</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <ul class="douban">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <img src="<%=list[i]['cover'].l%>" class="b-img" alt="<%=list[i]['title']%>"/>
+                            <p class="d-name"><%=list[i]['title']%></p>
+                            <p class="b-actors">
+                                <%for(var j = 0; j < list[i]['actors'].length; j += 1) {%>
+                                    <span class="d-tags"><%=list[i]['actors'][j]%></span>
+                                <%}%>
+                            </p>
+                            <p class="b-duration"><%=list[i]['downloadCount']%> 人已观看</p>
+                            <a href="<%=list[i]['click']%>" class="v-fly">播放</a>
+                            <p class="v-comment">
+                                『<%=list[i]['marketComments'][0]['comments'][0]['comment']%>』
+                            </p>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/branding/icon.png" alt="豌豆荚" class="f-icon">
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- 视频模板 end -->
+        <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/baidu-template.js"></script>
+        <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=C94103323d2134d9ba04374134db6919"></script>
+        <script type="text/javascript" src="js/wandoujia-api.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+
     </body>
 </html>
