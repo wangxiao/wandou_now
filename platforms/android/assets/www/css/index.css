@@ -49,9 +49,6 @@ p {
 }
 .d-name {
     font-size: 15px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 .d-rate {
     line-height: 1;
@@ -81,13 +78,6 @@ p {
     color: #fff;
 }
 
-/* 地图 */
-#map-wrapper {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    margin:0;
-}
 /* douban */
 .douban {
     margin: 0;
@@ -103,9 +93,6 @@ p {
 }
 .b-actors, .b-duration {
     color: #aaa;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
 }
 .b-fly {
     display: inline-block;
