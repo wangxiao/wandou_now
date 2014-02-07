@@ -53,7 +53,7 @@
              * @property {Boolean} [loop=false] 是否连续滑动
              * @namespace options
              */
-            loop: false,
+            loop: true,
             
             /**
              * @property {Number} [speed=400] 动画执行速度

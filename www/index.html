@@ -24,7 +24,7 @@
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
                         <li class="d-item">
                             <div class="d-wrapper">
-                                <p class="d-name"><%=list[i]['name']%></p>
+                                <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                                 <p class="d-rate">
                                     <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
                                         <i class="icon-star"></i>
@@ -81,7 +81,7 @@
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                             <p class="d-rate">
                                 <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
                                     <i class="icon-star"></i>
@@ -114,7 +114,7 @@
                     %>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                             <p class="b-actors"><%=list[i]['actors']%></p>
                             <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
                             <p class="movie-id v-fly" data-id="<%=list[i]['id']%>">播放</p>
