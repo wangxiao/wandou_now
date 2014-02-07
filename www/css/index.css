@@ -31,13 +31,13 @@ body:after {
 }
 .s-title {
     position: relative;
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 29px;
     display: inline-block;
     padding: 0 20px;
     margin: 0 0 20px 10px;
     color: #fff;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 .s-title:after {
     content: '';
