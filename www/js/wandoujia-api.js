@@ -34,15 +34,27 @@ var app = {
 // 豌豆荚的 API
 var wandoujiaApi = {
     dianping: function() {
-        return $.ajax({
+        $.ajax({
             type: 'get',
             url: 'http://now.wandoulabs.com/shop',
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
-            timeout: 10000
-        }).done(function(list) {
-        }).fail(function(xhr, status, error) {
+            timeout: 10000,
+            success: function(list){
+                var data = {};
+                data.list = list;
+                var tpl = baidu.template('dianping-tpl', data);
+                $('.app').append(tpl);
+
+                $('body').on('click', '.d-fly', function () {
+                    var url = $(this).data('url');
+                    baseApi.openApp(url);
+                });
+
+                $('#slider').slider({loop:true});
+            },
+            error: function(xhr, type){}
         });
     },
     douban: function() {
@@ -52,9 +64,14 @@ var wandoujiaApi = {
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
-            timeout: 10000
-        }).done(function(list) {
-        }).fail(function(xhr, status, error) {
+            timeout: 10000,
+            success: function(list){
+                var data = {};
+                data.list = list;
+                var tpl = baidu.template('douban-tpl', data);
+                $('.app').append(tpl);
+            },
+            error: function(xhr, type){}
         });
     },
     video: function() {
@@ -64,9 +81,14 @@ var wandoujiaApi = {
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
-            timeout: 10000
-        }).done(function(list) {
-        }).fail(function(xhr, status, error) {
+            timeout: 10000,
+            success: function(list){
+                var data = {};
+                data.list = list;
+                var tpl = baidu.template('video-tpl', data);
+                $('.app').append(tpl);
+            },
+            error: function(xhr, type){}
         });
     },
     openWandoujiaMovie: function(movieId) {
