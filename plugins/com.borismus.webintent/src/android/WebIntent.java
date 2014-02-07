@@ -1,31 +1,34 @@
 package com.borismus.webintent;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.cordova.CordovaActivity;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.text.Html;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaActivity;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * WebIntent is a PhoneGap plugin that bridges Android intents and web
  * applications:
- * 
+ *
  * 1. web apps can spawn intents that call native Android applications. 2.
  * (after setting up correct intent filters for PhoneGap applications), Android
- * intents can be handled by PhoneGap web applications.
- * 
+ * intents can be handled by PhoneGap web applications.Context ctx = this.cordova.getActivity().getApplicationContext();
+ *
  * @author boris@borismus.com
- * 
+ *
  */
 public class WebIntent extends CordovaPlugin {
 
@@ -38,7 +41,22 @@ public class WebIntent extends CordovaPlugin {
         try {
             this.callbackContext = callbackContext;
 
-            if (action.equals("startActivity")) {
+            Context ctx = this.cordova.getActivity().getApplicationContext();
+
+            if(action.equals("douban")){
+                startDouban(ctx, args.getString(0));
+            }
+            else if(action.equals("wandou")){
+                if (args.length() != 1) {
+                    //return new PluginResult(PluginResult.Status.INVALID_ACTION);
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+                    return false;
+                }
+                openVideoDetailActivity(ctx, args.getString(0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                return true;
+            }
+            else if (action.equals("startActivity")) {
                 if (args.length() != 1) {
                     //return new PluginResult(PluginResult.Status.INVALID_ACTION);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
@@ -121,7 +139,7 @@ public class WebIntent extends CordovaPlugin {
                 callbackContext.sendPluginResult(result);
                 return true;
                 //return result;
-            } else if (action.equals("sendBroadcast")) 
+            } else if (action.equals("sendBroadcast"))
             {
                 if (args.length() != 1) {
                     //return new PluginResult(PluginResult.Status.INVALID_ACTION);
@@ -171,7 +189,7 @@ public class WebIntent extends CordovaPlugin {
 
     void startActivity(String action, Uri uri, String type, Map<String, String> extras) {
         Intent i = (uri != null ? new Intent(action, uri) : new Intent(action));
-        
+
         if (type != null && uri != null) {
             i.setDataAndType(uri, type); //Fix the crash problem with android 2.3.6
         } else {
@@ -179,7 +197,7 @@ public class WebIntent extends CordovaPlugin {
                 i.setType(type);
             }
         }
-        
+
         for (String key : extras.keySet()) {
             String value = extras.get(key);
             // If type is text html, the extra text must sent as HTML
@@ -199,6 +217,56 @@ public class WebIntent extends CordovaPlugin {
         ((CordovaActivity)this.cordova.getActivity()).startActivity(i);
     }
 
+    void startDouban(Context ctx, String subId){
+
+        Intent i;
+        PackageManager manager = ctx.getPackageManager();
+        try {
+            i = manager.getLaunchIntentForPackage("com.douban.movie");
+            if (i == null)
+                throw new PackageManager.NameNotFoundException();
+
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            i.setClassName("com.douban.movie", "com.douban.movie.app.SubjectActivity");
+            i.setComponent(ComponentName.unflattenFromString("com.douban.movie.app.SubjectActivity"));
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+
+
+            String cleanId;
+
+            if (subId.contains("/")) {
+                cleanId = subId.substring(subId.lastIndexOf("/"));
+            } else {
+                cleanId = subId;
+            }
+            i.putExtra("mid", cleanId);
+
+            ctx.startActivity(i);
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+
+//        Class activityClass = null;
+//        try {
+//            activityClass = Class.forName("com.douban.movie.app.SubjectActivity");
+//        } catch (ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//        Context ctx = this.cordova.getActivity().getApplicationContext();
+//        Intent intent = new Intent(ctx, activityClass);
+//
+//        String cleanId;
+//
+//        if (subId.contains("/")) {
+//            cleanId = subId.substring(subId.lastIndexOf("/"));
+//        } else {
+//            cleanId = subId;
+//        }
+//        intent.putExtra("mid", cleanId);
+//        ctx.startActivity(intent);
+    }
+
     void sendBroadcast(String action, Map<String, String> extras) {
         Intent intent = new Intent();
         intent.setAction(action);
@@ -208,5 +276,21 @@ public class WebIntent extends CordovaPlugin {
         }
 
         ((CordovaActivity)this.cordova.getActivity()).sendBroadcast(intent);
+    }
+
+    void openVideoDetailActivity(Context ctx, String videoId) throws ActivityNotFoundException {
+        Intent videoIntent = new Intent();
+        videoIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        videoIntent.setAction(Intent.ACTION_MAIN);
+        /*videoIntent.setComponent(new ComponentName(
+                "com.wandoujia.phoenix2", "com.wandoujia.p4.video.activity.VideoDetailActivity"));*/
+        videoIntent.setData(Uri.parse("http://video.wandoujia.com/videos/" + videoId));
+        Boolean result = false;
+        try{
+            ctx.startActivity(videoIntent);
+        }catch  (ActivityNotFoundException e){
+            e.printStackTrace();
+        }
+
     }
 }
