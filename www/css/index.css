@@ -1,27 +1,79 @@
 body {
+    position: relative;
     background: #f2f2f2;
     max-width: 640px;
     min-width: 320px;
     margin: 0 auto;
     color: #555;
-    font: 12px/1.5 "Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font: 12px/1.5 "Roboto","Lantinghei SC","Microsoft Yahei",Helvetica,Arial,sans-serif;
 }
 p {
     margin: 0;
 }
+.app {
+    overflow: hidden;
+}
+.box-shadow {
+    box-shadow: 1px 1px 2px #ddd;
+}
+body:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #ccc;
+    top: 0;
+    left: 11px;
+}
 
 /* section */
 .section {
-    width: 95%;
-    margin: 2.5%;
-    background: #fff;
-    box-shadow: 1px 1px 2px #ddd;
+    margin: 20px 10px 20px 35px;
 }
 .s-title {
-    font-size: 20px;
-    padding: 15px;
+    position: relative;
+    font-size: 13px;
+    line-height: 22px;
+    display: inline-block;
+    padding: 0 12px;
+    margin: 0 0 20px 0;
+    color: #fff;
+    border-radius: 5px;
+}
+.s-title:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right-color: #3baa24;
+    top: 6px;
+    left: -10px;
+}
+.s-circle {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    border: 2px solid #3baa24;
+    top: 0;
+    left: -33px;
+    z-index: 99;
+}
+.s-circle:after {
+    content: '';
+    position: absolute;
+    background: #3baa24;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    margin: -4px 0 0 -4px;
+    z-index: 99;
 }
 .s-footer {
+    background: #fff;
     text-align: right;
     font-size: 0;
 }
@@ -32,6 +84,9 @@ p {
 }
 
 /* dianping */
+.foods .s-title {
+    background: #3baa24;
+}
 .dianping {
     margin: 0;
     padding: 0 15px;
@@ -39,9 +94,9 @@ p {
     list-style-type: none;
 }
 .d-item {
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #eaeaea;
     line-height: 2;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
 }
 .d-item:last-child {
@@ -73,7 +128,8 @@ p {
     margin-top: 28px;
     position: absolute;
     line-height: 30px;
-    padding: 0 20px;
+    width: 70px;
+    text-align: center;
     background: #3baa24;
     top: 0;
     right: 0;
@@ -89,6 +145,15 @@ p {
     margin:0;
 }
 /* douban */
+.movie .s-title, .movie .s-circle:after {
+    background: rgb(82,200,182);
+}
+.movie .s-title:after {
+    border-right-color: rgb(82,200,182);
+}
+.movie .s-circle {
+    border-color: rgb(82,200,182);
+}
 .douban {
     margin: 0;
     padding: 0 15px;
@@ -110,8 +175,9 @@ p {
 .b-fly {
     display: inline-block;
     line-height: 30px;
-    padding: 0 20px;
-    background: #38d;
+    width: 70px;
+    text-align: center;
+    background: #52C8B6;
     text-decoration: none;
     color: #fff;
 }

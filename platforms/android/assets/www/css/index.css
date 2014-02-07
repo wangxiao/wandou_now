@@ -20,6 +20,7 @@ p {
 .s-title {
     font-size: 20px;
     padding: 15px;
+    color: #fff;
 }
 .s-footer {
     text-align: right;
@@ -32,6 +33,9 @@ p {
 }
 
 /* dianping */
+.foods .s-title {
+    background: #3baa24;
+}
 .dianping {
     margin: 0;
     padding: 0 15px;
@@ -39,9 +43,9 @@ p {
     list-style-type: none;
 }
 .d-item {
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #eaeaea;
     line-height: 2;
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
 }
 .d-item:last-child {
@@ -49,6 +53,9 @@ p {
 }
 .d-name {
     font-size: 15px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .d-rate {
     line-height: 1;
@@ -70,7 +77,8 @@ p {
     margin-top: 28px;
     position: absolute;
     line-height: 30px;
-    padding: 0 20px;
+    width: 70px;
+    text-align: center;
     background: #3baa24;
     top: 0;
     right: 0;
@@ -79,6 +87,9 @@ p {
 }
 
 /* douban */
+.movie .s-title {
+    background: rgb(82,200,182);
+}
 .douban {
     margin: 0;
     padding: 0 15px;
@@ -93,12 +104,16 @@ p {
 }
 .b-actors, .b-duration {
     color: #aaa;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .b-fly {
     display: inline-block;
     line-height: 30px;
-    padding: 0 20px;
-    background: #38d;
+    width: 70px;
+    text-align: center;
+    background: #52C8B6;
     text-decoration: none;
     color: #fff;
 }
