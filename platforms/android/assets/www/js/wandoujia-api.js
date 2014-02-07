@@ -56,6 +56,18 @@ var wandoujiaApi = {
         }).done(function(list) {
         }).fail(function(xhr, status, error) {
         });
+    },
+    video: function() {
+        return $.ajax({
+            type: 'get',
+            url: 'http://now.wandoulabs.com/video',
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            timeout: 10000
+        }).done(function(list) {
+        }).fail(function(xhr, status, error) {
+        });
     }
 };
 

@@ -10,8 +10,7 @@
         <title>Hello World</title>
     </head>
     <body>
-        <div class="app">
-        </div>
+        <div class="app"></div>
 
         <!-- 大众点评模板 -->
         <script id="dianping-tpl" type="template">
@@ -48,7 +47,6 @@
                 </div>
             </div>
         </script>
-
         <!-- 大众点评模板 end -->
         <!-- 地图模板 -->
         <script id="map-tpl" type="template">
@@ -60,14 +58,13 @@
                 </div>
                 <div id="map-wrapper"></div>
                 <div class="s-footer">
-                    <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
+                    <img src="http://img.wdjimg.com/mms/icon/v1/7/48/d2c98435b7a6e1b67887d4418f4fe487_48_48.png" alt="百度地图" class="f-icon">
                 </div>
                 <a class="map-href d-fly">详细地址</a>
             </div>
         </script>
         <!-- 地图模板 end -->
-
-        
+        <!-- 豆瓣模板 -->
         <script id="douban-tpl" type="template">
             <div class="movie section">
                 <div class="s-title">
@@ -97,7 +94,36 @@
                 </div>
             </div>
         </script>
-
+        <!-- 豆瓣模板 end -->
+        <!-- 视频模板 -->
+        <script id="video-tpl" type="template">
+            <div class="video section">
+                <div class="s-title">
+                    <p>大家正在看的视频</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <ul class="douban">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {
+                        if (list[i]['actors']) {
+                    %>
+                        <li class="d-item">
+                            <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
+                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="b-actors"><%=list[i]['actors']%></p>
+                            <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
+                            <a href="<%=list[i]['click']%>" class="v-fly">播放</a>
+                        </li>
+                    <%}
+                    }%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/branding/icon.png" alt="豌豆荚" class="f-icon">
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- 视频模板 end -->
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
         <script type="text/javascript" src="js/baidu-template.js"></script>
