@@ -1,7 +1,6 @@
 package com.borismus.webintent;
 
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -44,7 +43,15 @@ public class WebIntent extends CordovaPlugin {
             Context ctx = this.cordova.getActivity().getApplicationContext();
 
             if(action.equals("douban")){
+                if (args.length() != 1) {
+                    //return new PluginResult(PluginResult.Status.INVALID_ACTION);
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+                    return false;
+                }
+
                 startDouban(ctx, args.getString(0));
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                return true;
             }
             else if(action.equals("wandou")){
                 if (args.length() != 1) {
@@ -228,7 +235,7 @@ public class WebIntent extends CordovaPlugin {
 
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.setClassName("com.douban.movie", "com.douban.movie.app.SubjectActivity");
-            i.setComponent(ComponentName.unflattenFromString("com.douban.movie.app.SubjectActivity"));
+//            i.setComponent(ComponentName.unflattenFromString("com.douban.movie.app.SubjectActivity"));
             i.addCategory(Intent.CATEGORY_LAUNCHER);
 
 

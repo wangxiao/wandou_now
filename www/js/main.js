@@ -40,7 +40,7 @@ void function() {
             var tpl = baidu.template('video-tpl', data);
             appWrapper.append(tpl);
             $('.movie-id').on('click',function() {
-                id = this.attr('data-id');
+                id = $(this).attr('data-id');
                 wandoujiaApi.openWandoujiaMovie(id);
             });
 
