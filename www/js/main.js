@@ -7,17 +7,49 @@ void function() {
 
     // 大众点评
     function createDianping() {
-        wandoujiaApi.dianping();
+        wandoujiaApi.dianping().done(function(list) {
+            var data = {};
+            data.list = list;
+            var tpl = baidu.template('dianping-tpl', data);
+            $('.app').append(tpl);
+
+            $('body').on('click', '.d-fly', function () {
+                var url = $(this).data('url');
+                baseApi.openApp(url);
+            });
+
+            $('#dianpingSlider').slider({arrow:false, dots:false});
+        });
     }
 
     // 豆瓣电影
     function createDouban() {
-        wandoujiaApi.douban();
+        wandoujiaApi.douban().done(function(list) {
+            var data = {};
+            data.list = list;
+            var tpl = baidu.template('douban-tpl', data);
+            $('.app').append(tpl);
+            $('.douban-id').on('click',function() {
+                var id = $(this).attr('data-id');
+                wandoujiaApi.openDoubanMovie(id);
+            });
+            $('#doubanSlider').slider({arrow:false, dots:false});
+        });
     }
 
     // 豆瓣电影
     function createVideo() {
-        wandoujiaApi.video();
+        wandoujiaApi.video().done(function(list) {
+            var data = {};
+            data.list = list;
+            var tpl = baidu.template('video-tpl', data);
+            $('.app').append(tpl);
+            $('.movie-id').on('click',function() {
+                var id = $(this).attr('data-id');
+                wandoujiaApi.openWandoujiaMovie(id);
+            });
+            $('#videoSlider').slider({arrow:false, dots:false});
+        });
     }
 
     // 生成地图
@@ -37,6 +69,7 @@ void function() {
                     autoViewport: true
                 },
                 onSearchComplete: function(results) {
+                    map.reset();
                     var plan = results.getPlan(0);
                     // plan.getDistance(true)
                     var time = plan.getDuration(true);
@@ -72,7 +105,7 @@ void function() {
     }
 
     function getLocation() {
-        var dfd = $.Deferred();
+        var dfd = jQuery.Deferred();
         if (G_location) {
             dfd.resolve(G_location);
         } else {
@@ -84,8 +117,8 @@ void function() {
     }
 
     // 主逻辑
-    // getLocation();
-    // var mapFunction = createNewMap('普天德胜大厦', getDestination());
+    getLocation();
+    var mapFunction = createNewMap('普天德胜大厦', getDestination());
     createDianping();
     createDouban();
     createVideo();
