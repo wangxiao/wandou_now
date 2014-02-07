@@ -62,24 +62,46 @@ void function() {
         // 百度地图API功能
         var map = new BMap.Map("map-wrapper");
         map.addControl(new BMap.MapTypeControl());
-        var driving = new BMap.DrivingRoute(map, {
-            renderOptions:{
-                map: map, 
-                autoViewport: true
-            },
-            onSearchComplete: function(results) {
-                var plan = results.getPlan(0);
-                // plan.getDistance(true)
-                var time = plan.getDuration(true);
-                ele.find('.time').text(time);
-                ele.find('.destination').text(end);
-                getLocation().done(function(position) {
-                    var url = 'http://api.map.baidu.com/direction?origin=latlng:'+ position.coords.latitude +','+ position.coords.longitude +'|name:当前位置&destination=西二旗&mode=driving&region=北京&output=html&src=yourCompanyName|yourAppName';
-                    ele.find('.map-href').attr('href', url).show();
-                });
-            }
+
+        function search(from, end) {
+            var driving = new BMap.DrivingRoute(map, {
+                renderOptions:{
+                    map: map, 
+                    autoViewport: true
+                },
+                onSearchComplete: function(results) {
+                    var plan = results.getPlan(0);
+                    // plan.getDistance(true)
+                    var time = plan.getDuration(true);
+                    ele.find('.time').text(time);
+                    ele.find('.destination').text(end);
+                    getLocation().done(function(position) {
+                        var url = 'http://api.map.baidu.com/direction?origin=latlng:'+ position.coords.latitude +','+ position.coords.longitude +'|name:当前位置&destination=西二旗&mode=driving&region=北京&output=html&src=yourCompanyName|yourAppName';
+                        ele.find('.map-href').attr('href', url).show();
+                    });
+                }
+            });
+            driving.search(from, end);
+        }
+        search(from, end);
+        $('.map-change-btn').on('click', function() {
+            var ele = $('.map-destination');
+            setDestination(ele.val());
+            search('普天德胜大厦', getDestination());
+            ele.val('');
         });
-        driving.search(from, end);
+    }
+
+    function setDestination(val) {
+        baseApi.setStorage('destination', val);
+    }
+
+    function getDestination() {
+        var val = baseApi.getStorage('destination');
+        if (!val) {
+            val = '西二旗';
+        }
+        return val;
     }
 
     function getLocation() {
@@ -95,11 +117,11 @@ void function() {
     }
 
     // 主逻辑
+    getLocation();
+    var mapFunction = createNewMap('普天德胜大厦', getDestination());
     createDianping();
-    createNewMap('普天德胜大厦', '西二旗');
     createDouban();
     createVideo();
-    
 }();
 
 // }, false);

@@ -100,5 +100,11 @@ var baseApi = {
             dfd.reject();
         });
         return dfd;
+    },
+    setStorage: function(item, value) {
+        window.localStorage.setItem(item, value);
+    },
+    getStorage: function(item) {
+        return window.localStorage.getItem(item);
     }
 };
