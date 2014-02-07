@@ -31,13 +31,13 @@ body:after {
 }
 .s-title {
     position: relative;
-    font-size: 15px;
-    line-height: 30px;
+    font-size: 14px;
+    line-height: 29px;
     display: inline-block;
     padding: 0 20px;
     margin: 0 0 20px 10px;
     color: #fff;
-    border-radius: 2px;
+    border-radius: 1px;
 }
 .s-title:after {
     content: '';
@@ -79,6 +79,8 @@ body:after {
     width: 24px;
     height: 24px;
     margin: 10px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* dianping */
@@ -138,14 +140,39 @@ body:after {
 }
 
 /* 地图 */
+.mappp .s-title, .mappp .s-circle:after {
+    background: #38d;
+}
+.mappp .s-title:after {
+    border-right-color: #38d;
+}
+.mappp .s-circle {
+    border-color: #38d;
+}
 #map-wrapper {
     width: 100%;
     height: 200px;
     overflow: hidden;
     margin:0;
 }
-.map-href {
-    display: none;
+.m-fly {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    width: 70px;
+    text-align: center;
+    background: #38d;
+    text-decoration: none;
+    color: #fff;
+}
+.map-destination {
+    vertical-align: middle;
+    height: 24px;
+    width: 120px;
+    border: 1px solid #ddd;
+    margin: 0;
+    padding: 2px 5px;
+    outline: 0;
 }
 /* douban */
 .movie .s-title, .movie .s-circle:after {

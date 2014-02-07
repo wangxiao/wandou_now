@@ -56,6 +56,8 @@ void function() {
     function createNewMap(from, end) {
         var tpl = baidu.template('map-tpl');
         appWrapper.append(tpl);
+        $('.map-destination').hide();
+        $('.map-change-btn').hide();
         var ele = $('#map-block');
 
         // 百度地图API功能
@@ -65,7 +67,7 @@ void function() {
         function search(from, end) {
             var driving = new BMap.DrivingRoute(map, {
                 renderOptions:{
-                    map: map, 
+                    map: map,
                     autoViewport: true
                 },
                 onSearchComplete: function(results) {
@@ -77,7 +79,7 @@ void function() {
                     ele.find('.destination').text(end);
                     getLocation().done(function(position) {
                         var url = 'http://api.map.baidu.com/direction?origin=latlng:'+ position.coords.latitude +','+ position.coords.longitude +'|name:当前位置&destination=西二旗&mode=driving&region=北京&output=html&src=yourCompanyName|yourAppName';
-                        ele.find('.map-href').attr('href', url).show();
+                        ele.find('.map-href').attr('href', url);
                     });
                 }
             });
@@ -89,6 +91,11 @@ void function() {
             setDestination(ele.val());
             search('普天德胜大厦', getDestination());
             ele.val('');
+        });
+        $('.map-change').on('click', function () {
+            $(this).hide();
+            $('.map-destination').show();
+            $('.map-change-btn').show();
         });
     }
 
