@@ -1,7 +1,7 @@
 // document.addEventListener('deviceready', function() {
 void function() {
     // 主程序开始
-    var appWrapper = $('.app');
+    var appWrapper = jQuery('.app');
     // 地理位置 
     var G_location;
 
