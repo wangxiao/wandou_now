@@ -50,14 +50,8 @@ void function() {
                 var ele = $('#map-block');
                 ele.find('.time').text(time);
                 ele.find('.destination').text(end);
-                var url = 'http://api.map.baidu.com/direction?destination='+ end +'&mode=driving&region=北京&output=html';
-                ele.find('.map-href').attr('href', encodeURIComponent(url));
-                ele.show();
-
-                setTimeout(function() {
-                    map.setCenter(new BMap.Point(116.375254, 40.00393));   //设置地图中心点。center除了可以为坐标点以外，还支持城市名
-                    map.setZoom(11);
-                }, 500);
+                var url = 'http://api.map.baidu.com/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&output=html&src=yourCompanyName|yourAppName';
+                ele.find('.map-href').attr('href', url);
             }
         });
         driving.search(from, end);
