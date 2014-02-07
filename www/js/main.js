@@ -2,6 +2,8 @@
 void function() {
     // 主程序开始
     var appWrapper = $('.app');
+    // 地理位置 
+    var G_location;
 
     // 大众点评
     function createDianping() {
@@ -34,6 +36,7 @@ void function() {
     function createNewMap(from, end) {
         var tpl = baidu.template('map-tpl');
         appWrapper.append(tpl);
+        var ele = $('#map-block');
 
         // 百度地图API功能
         var map = new BMap.Map("map-wrapper");
@@ -47,14 +50,27 @@ void function() {
                 var plan = results.getPlan(0);
                 // plan.getDistance(true)
                 var time = plan.getDuration(true);
-                var ele = $('#map-block');
                 ele.find('.time').text(time);
                 ele.find('.destination').text(end);
-                var url = 'http://api.map.baidu.com/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&output=html&src=yourCompanyName|yourAppName';
-                ele.find('.map-href').attr('href', url);
+                getLocation().done(function(position) {
+                    var url = 'http://api.map.baidu.com/direction?origin=latlng:'+ position.coords.latitude +','+ position.coords.longitude +'|name:当前位置&destination=西二旗&mode=driving&region=北京&output=html&src=yourCompanyName|yourAppName';
+                    ele.find('.map-href').attr('href', url);
+                });
             }
         });
         driving.search(from, end);
+    }
+
+    function getLocation() {
+        var dfd = $.Deferred();
+        if (G_location) {
+            dfd.resolve(G_location);
+        } else {
+            baseApi.getLocation().done(function(position) {
+                dfd.resolve(position);
+            });
+        }
+        return dfd;
     }
 
     // 主逻辑

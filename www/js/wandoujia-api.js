@@ -69,5 +69,14 @@ var baseApi = {
         }, function() {
         }, function() {
         });
+    },
+    getLocation: function() {
+        var dfd = $.Deferred();
+        navigator.geolocation.getCurrentPosition(function(position) {
+            dfd.resolve(position);
+        }, function() {
+            dfd.reject();
+        });
+        return dfd;
     }
 };
