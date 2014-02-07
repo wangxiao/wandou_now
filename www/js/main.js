@@ -39,6 +39,11 @@ void function() {
             data.list = list;
             var tpl = baidu.template('video-tpl', data);
             appWrapper.append(tpl);
+            $('.movie-id').on('click',function() {
+                id = this.attr('data-id');
+                wandoujiaApi.openWandoujiaMovie(id);
+            });
+
         }).fail(function(xhr, status, error) {
             console.log(status, error);
         });
@@ -66,7 +71,7 @@ void function() {
                 ele.find('.destination').text(end);
                 getLocation().done(function(position) {
                     var url = 'http://api.map.baidu.com/direction?origin=latlng:'+ position.coords.latitude +','+ position.coords.longitude +'|name:当前位置&destination=西二旗&mode=driving&region=北京&output=html&src=yourCompanyName|yourAppName';
-                    ele.find('.map-href').attr('href', url);
+                    ele.find('.map-href').attr('href', url).show();
                 });
             }
         });

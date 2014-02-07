@@ -68,6 +68,13 @@ var wandoujiaApi = {
         }).done(function(list) {
         }).fail(function(xhr, status, error) {
         });
+    },
+    openWandoujiaMovie: function(movieId) {
+        alert(movieId);
+        cordova.exec(function(args) {
+        }, function(args) {
+            
+        }, 'WebIntent', 'wandou', [movieId]);
     }
 };
 

@@ -167,6 +167,9 @@ keyframes popup {
     overflow: hidden;
     margin:0;
 }
+.map-href {
+    display: none;
+}
 /* douban */
 .movie .s-title, .movie .s-circle:after {
     background: rgb(82,200,182);

@@ -112,7 +112,7 @@
                             <p class="d-name"><%=list[i]['name']%></p>
                             <p class="b-actors"><%=list[i]['actors']%></p>
                             <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
-                            <a href="<%=list[i]['click']%>" class="v-fly">播放</a>
+                            <p class="movie-id v-fly" data-id="<%=list[i]['id']%>">播放</p>
                         </li>
                     <%}
                     }%>
