@@ -20,30 +20,33 @@
             <div class="foods section">
                 <div class="s-title">
                     <p><span class="number"><%=list.length%></span>&nbsp;处美食推荐</p>
+                    <div class="s-circle"></div>
                 </div>
-                <ul class="dianping">
-                <%for(var i = 0, l = list.length; i < l; i += 1) {%>
-                    <li class="d-item">
-                        <p class="d-name"><%=list[i]['name']%></p>
-                        <p class="d-rate">
-                            <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
-                                <i class="icon-star"></i>
-                            <%}%>
-                        </p>
-                        <p class="d-meta">
-                            <span class="d-distance"><%=list[i]['distance']%></span>
-                            &nbsp;&nbsp;
-                            <i class="icon-tags"></i>
-                            <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
-                                <span class="d-tags"><%=list[i]['tags'][j]%></span>
-                            <%}%>
-                        </p>
-                        <span data-url="<%=list[i]['link']%>" class="d-fly">去看看</span>
-                    </li>
-                <%}%>
-                </ul>
-                <div class="s-footer">
-                    <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
+                <div class="box-shadow">
+                    <ul class="dianping">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-rate">
+                                <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
+                                    <i class="icon-star"></i>
+                                <%}%>
+                            </p>
+                            <p class="d-meta">
+                                <span class="d-distance"><%=list[i]['distance']%></span>
+                                &nbsp;&nbsp;
+                                <i class="icon-tags"></i>
+                                <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
+                                    <span class="d-tags"><%=list[i]['tags'][j]%></span>
+                                <%}%>
+                            </p>
+                            <span data-url="<%=list[i]['link']%>" class="d-fly">去看看</span>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
+                    </div>
                 </div>
             </div>
         </script>
@@ -51,25 +54,28 @@
             <div class="movie section">
                 <div class="s-title">
                     <p>近期热映电影</p>
+                    <div class="s-circle"></div>
                 </div>
-                <ul class="douban">
-                <%for(var i = 0, l = list.length; i < l; i += 1) {%>
-                    <li class="d-item">
-                        <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                        <p class="d-name"><%=list[i]['name']%></p>
-                        <p class="d-rate">
-                            <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
-                                <i class="icon-star"></i>
-                            <%}%>
-                        </p>
-                        <p class="b-actors"><%=list[i]['actors']%></p>
-                        <p class="b-duration"><%=list[i]['duration']%></p>
-                        <a href="<%=list[i]['click']%>" class="b-fly">购票</a>
-                    </li>
-                <%}%>
-                </ul>
-                <div class="s-footer">
-                    <img src="http://img.wdjimg.com/mms/icon/v1/9/f4/e2fed53a563d696d990484de34729f49_48_48.png" alt="豆瓣电影" class="f-icon">
+                <div class="box-shadow">
+                    <ul class="douban">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
+                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-rate">
+                                <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
+                                    <i class="icon-star"></i>
+                                <%}%>
+                            </p>
+                            <p class="b-actors"><%=list[i]['actors']%></p>
+                            <p class="b-duration"><%=list[i]['duration']%></p>
+                            <a href="<%=list[i]['click']%>" class="b-fly">购票</a>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/9/f4/e2fed53a563d696d990484de34729f49_48_48.png" alt="豆瓣电影" class="f-icon">
+                    </div>
                 </div>
             </div>
         </script>

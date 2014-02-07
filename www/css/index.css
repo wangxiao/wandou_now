@@ -28,15 +28,15 @@ body:after {
 
 /* section */
 .section {
-    margin: 20px 10px 20px 35px;
+    margin: 20px 10px 20px 25px;
 }
 .s-title {
     position: relative;
-    font-size: 13px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 30px;
     display: inline-block;
-    padding: 0 12px;
-    margin: 0 0 20px 0;
+    padding: 0 20px;
+    margin: 0 0 20px 10px;
     color: #fff;
     border-radius: 5px;
 }
@@ -47,7 +47,7 @@ body:after {
     height: 0;
     border: 5px solid transparent;
     border-right-color: #3baa24;
-    top: 6px;
+    top: 10px;
     left: -10px;
 }
 .s-circle {
@@ -56,7 +56,7 @@ body:after {
     height: 18px;
     border-radius: 100%;
     border: 2px solid #3baa24;
-    top: 0;
+    top: 4px;
     left: -33px;
     z-index: 99;
 }
@@ -64,12 +64,12 @@ body:after {
     content: '';
     position: absolute;
     background: #3baa24;
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 100%;
     top: 50%;
     left: 50%;
-    margin: -4px 0 0 -4px;
+    margin: -3px 0 0 -3px;
     z-index: 99;
 }
 .s-footer {

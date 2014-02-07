@@ -1,28 +1,79 @@
 body {
+    position: relative;
     background: #f2f2f2;
     max-width: 640px;
     min-width: 320px;
     margin: 0 auto;
     color: #555;
-    font: 12px/1.5 "Lantinghei SC","Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font: 12px/1.5 "Roboto","Lantinghei SC","Microsoft Yahei",Helvetica,Arial,sans-serif;
 }
 p {
     margin: 0;
 }
+.app {
+    overflow: hidden;
+}
+.box-shadow {
+    box-shadow: 1px 1px 2px #ddd;
+}
+body:after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 4px;
+    background: #ccc;
+    top: 0;
+    left: 11px;
+}
 
 /* section */
 .section {
-    width: 95%;
-    margin: 2.5%;
-    background: #fff;
-    box-shadow: 1px 1px 2px #ddd;
+    margin: 20px 10px 20px 25px;
 }
 .s-title {
-    font-size: 20px;
-    padding: 15px;
+    position: relative;
+    font-size: 15px;
+    line-height: 30px;
+    display: inline-block;
+    padding: 0 20px;
+    margin: 0 0 20px 10px;
     color: #fff;
+    border-radius: 5px;
+}
+.s-title:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-right-color: #3baa24;
+    top: 10px;
+    left: -10px;
+}
+.s-circle {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    border: 2px solid #3baa24;
+    top: 4px;
+    left: -33px;
+    z-index: 99;
+}
+.s-circle:after {
+    content: '';
+    position: absolute;
+    background: #3baa24;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    margin: -3px 0 0 -3px;
+    z-index: 99;
 }
 .s-footer {
+    background: #fff;
     text-align: right;
     font-size: 0;
 }
@@ -87,8 +138,14 @@ p {
 }
 
 /* douban */
-.movie .s-title {
+.movie .s-title, .movie .s-circle:after {
     background: rgb(82,200,182);
+}
+.movie .s-title:after {
+    border-right-color: rgb(82,200,182);
+}
+.movie .s-circle {
+    border-color: rgb(82,200,182);
 }
 .douban {
     margin: 0;
