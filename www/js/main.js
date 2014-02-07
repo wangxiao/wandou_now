@@ -7,50 +7,17 @@ void function() {
 
     // 大众点评
     function createDianping() {
-        wandoujiaApi.dianping().done(function(list) {
-            var data = {};
-            data.list = list;
-            var tpl = baidu.template('dianping-tpl', data);
-            appWrapper.append(tpl);
-
-            $('body').on('click', '.d-fly', function () {
-                var url = $(this).data('url');
-                baseApi.openApp(url);
-            });
-        }).fail(function() {});
+        wandoujiaApi.dianping();
     }
 
     // 豆瓣电影
     function createDouban() {
-        wandoujiaApi.douban().done(function(list) {
-            var data = {};
-            data.list = list;
-            var tpl = baidu.template('douban-tpl', data);
-            appWrapper.append(tpl);
-            $('.douban-id').on('click',function() {
-                var id = $(this).attr('data-id');
-                wandoujiaApi.openDoubanMovie(id);
-            });
-        }).fail(function(xhr, status, error) {
-            console.log(status, error);
-        });
+        wandoujiaApi.douban();
     }
 
     // 豆瓣电影
     function createVideo() {
-        wandoujiaApi.video().done(function(list) {
-            var data = {};
-            data.list = list;
-            var tpl = baidu.template('video-tpl', data);
-            appWrapper.append(tpl);
-            $('.movie-id').on('click',function() {
-                var id = $(this).attr('data-id');
-                wandoujiaApi.openWandoujiaMovie(id);
-            });
-
-        }).fail(function(xhr, status, error) {
-            console.log(status, error);
-        });
+        wandoujiaApi.video();
     }
 
     // 生成地图
@@ -117,8 +84,8 @@ void function() {
     }
 
     // 主逻辑
-    getLocation();
-    var mapFunction = createNewMap('普天德胜大厦', getDestination());
+    // getLocation();
+    // var mapFunction = createNewMap('普天德胜大厦', getDestination());
     createDianping();
     createDouban();
     createVideo();

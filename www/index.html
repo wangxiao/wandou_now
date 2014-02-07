@@ -20,23 +20,25 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="dianping">
+                    <ul class="dianping" id="dianpingSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
                         <li class="d-item">
-                            <p class="d-name"><%=list[i]['name']%></p>
-                            <p class="d-rate">
-                                <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
-                                    <i class="icon-star"></i>
-                                <%}%>
-                            </p>
-                            <p class="d-meta">
-                                <span class="d-distance"><%=list[i]['distance']%></span>
-                                &nbsp;&nbsp;
-                                <i class="icon-tags"></i>
-                                <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
-                                    <span class="d-tags"><%=list[i]['tags'][j]%></span>
-                                <%}%>
-                            </p>
+                            <div class="d-wrapper">
+                                <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
+                                <p class="d-rate">
+                                    <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
+                                        <i class="icon-star"></i>
+                                    <%}%>
+                                </p>
+                                <p class="d-meta">
+                                    <span class="d-distance"><%=list[i]['distance']%></span>
+                                    &nbsp;&nbsp;
+                                    <i class="icon-tags"></i>
+                                    <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
+                                        <span class="d-tags"><%=list[i]['tags'][j]%></span>
+                                    <%}%>
+                                </p>
+                            </div>
                             <span data-url="<%=list[i]['link']%>" class="d-fly">去看看</span>
                         </li>
                     <%}%>
@@ -75,11 +77,11 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="douban">
+                    <ul class="douban" id="doubanSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {%>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                             <p class="d-rate">
                                 <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
                                     <i class="icon-star"></i>
@@ -106,13 +108,13 @@
                     <div class="s-circle"></div>
                 </div>
                 <div class="box-shadow">
-                    <ul class="douban">
+                    <ul class="douban" id="videoSlider">
                     <%for(var i = 0, l = list.length; i < l; i += 1) {
                         if (list[i]['actors']) {
                     %>
                         <li class="d-item">
                             <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=list[i]['name']%></p>
+                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
                             <p class="b-actors"><%=list[i]['actors']%></p>
                             <p class="b-duration"><%=list[i]['nowplaying']%> 人正在观看</p>
                             <p class="movie-id v-fly" data-id="<%=list[i]['id']%>">播放</p>
@@ -128,9 +130,23 @@
         </script>
         <!-- 视频模板 end -->
         <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/zepto.js"></script>
         <script type="text/javascript" src="js/baidu-template.js"></script>
         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=C94103323d2134d9ba04374134db6919"></script>
+        <script src="http://code.baidu.com/touch-0.2.11-min.js"></script>
+    <!--组件依赖js begin-->
+    <script type="text/javascript" src="js/touch.js"></script>
+    <script type="text/javascript" src="js/matchMedia.js"></script>
+    <script type="text/javascript" src="js/event.ortchange.js"></script>
+    <script type="text/javascript" src="js/parseTpl.js"></script>
+    <script type="text/javascript" src="js/gmu.js"></script>
+    <script type="text/javascript" src="js/event.js"></script>
+    <script type="text/javascript" src="js/widget.js"></script>
+    <script type="text/javascript" src="js/slider.js"></script>
+    <script type="text/javascript" src="js/arrow.js"></script>
+    <script type="text/javascript" src="js/dots.js"></script>
+    <script type="text/javascript" src="js/$touch.js"></script>
+    <!--组件依赖js end-->
         <script type="text/javascript" src="js/wandoujia-api.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
 
