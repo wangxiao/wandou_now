@@ -22,15 +22,15 @@ void function() {
 
     // 生成地图
     function createNewMap(from, end) {
+        var tpl = baidu.template('map-tpl');
+        appWrapper.append(tpl);
 
-        // var tpl = baidu.template('map-tpl');
-        // appWrapper.append(tpl);
-        
         // 百度地图API功能
         var map = new BMap.Map("map-wrapper");
+        map.addControl(new BMap.MapTypeControl());
         map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
         var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
-        driving.search("天安门", "百度大厦");
+        driving.search(from, end);
     }
 
     // 主逻辑
