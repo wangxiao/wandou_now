@@ -52,6 +52,17 @@ void function() {
         });
     }
 
+    // 体育比赛
+    function createSports() {
+        wandoujiaApi.sports().done(function(list) {
+            var data = {};
+            data.list = list;
+            var tpl = baidu.template('sports-tpl', data);
+            $('.app').append(tpl);
+            $('#sportsSlider').slider({arrow:false, dots:false});
+        });
+    }
+
     // 生成地图
     function createNewMap(from, end) {
         var tpl = baidu.template('map-tpl');
@@ -140,6 +151,17 @@ void function() {
     createDianping();
     createDouban();
     createVideo();
+    createSports();
+    setInterval(function () {
+        wandoujiaApi.sports().done(function(list) {
+            var data = {};
+            data.list = list;
+            var tpl = baidu.template('sports-tpl2', data);
+            $('.sports').html(tpl);
+            $('#sportsSlider').slider({arrow:false, dots:false});
+        });
+    },15000);
+    
 }();
 
 // }, false);

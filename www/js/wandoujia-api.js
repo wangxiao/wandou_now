@@ -73,6 +73,16 @@ var wandoujiaApi = {
             timeout: 10000
         });
     },
+    sports: function() {
+        return jQuery.ajax({
+            type: 'get',
+            url: 'http://now.wandoulabs.com/sport',
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            timeout: 10000
+        });
+    },
     openWandoujiaMovie: function(movieId) {
         cordova.exec(function(args) {
         }, function(args) {
