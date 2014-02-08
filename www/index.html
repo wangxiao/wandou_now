@@ -150,13 +150,24 @@
 
         <!-- 天气模板 -->
         <script id="weather-tpl" type="template">
-            <div class="weather">
-                <p class="weather-pm25"><%=list['pm25']['pm25'][0]%></p>
-                <p class="weather-area"><%=list['area'][0][0]%></p>
-                <p class="weather-date"><%=list['weather'][0]['date']%></p>
-                <p class="weather-weather"><%=list['weather'][0]['info']['dawn'][1]%></p>
-                <p class="weather-max"><%=list['weather'][0]['info']['dawn'][0]%>℃</p>
-                <p class="weather-min"><%=list['weather'][0]['info']['dawn'][2]%>℃</p>
+            <div class="weather section">
+                <div class="s-title">
+                    <p><%=list['area'][0][0]%>天气</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <p class="weather-date">今天&nbsp;&nbsp;&nbsp;<%=list['weather'][0]['date']%></p>
+                    <p class="weather-pm25">PM2.5&nbsp;&nbsp;<%=list['pm25']['pm25'][0]%></p>
+                    <img class="weather-img" src="img/sunny.png">
+                    <p class="">
+                        <%=list['weather'][0]['info']['day'][1]%>
+                        &nbsp;&nbsp;
+                        <%=list['weather'][0]['info']['day'][0]%>℃ ~ <%=list['weather'][0]['info']['day'][2]%>℃
+                    </p>
+                    <p class="">
+                        <%=list['weather'][0]['info']['day'][3]%> <%=list['weather'][0]['info']['day'][4]%>
+                    </p>
+                </div>
             </div>
         </script>
         <!-- 天气模板 end -->

@@ -36,8 +36,7 @@ var wandoujiaApi = {
     weather: function() {
         return jQuery.ajax({
             type: 'get',
-            url: 'http://cdn.weather.hao.360.cn/api_weather_info.php',
-            data: { app: 'hao360', code: '101010100', _jsonp: 'sb360'},
+            url: 'http://now.wandoulabs.com/weather',
             async: false,
             contentType: 'application/json',
             dataType: 'jsonp',
@@ -114,11 +113,4 @@ var baseApi = {
     }
 };
 
-// 天气
-var sb360 = function (list) {
-    console.log(list);
-    var data = {};
-    data.list = list;
-    var tpl = baidu.template('weather-tpl', data);
-    $('.app').prepend(tpl);
-};
+

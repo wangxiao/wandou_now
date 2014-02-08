@@ -122,9 +122,20 @@ void function() {
         return dfd;
     }
 
+    function createWeather() {
+        wandoujiaApi.weather().done(function(list) {
+            var data = {};
+            data.list = list;
+            console.log(list);
+            var tpl = baidu.template('weather-tpl', data);
+            appWrapper.append(tpl);
+        });
+    }
+
     // 主逻辑
-    wandoujiaApi.weather();
+    
     getLocation();
+    createWeather();
     var mapFunction = createNewMap('普天德胜大厦', getDestination());
     createDianping();
     createDouban();

@@ -24,12 +24,6 @@ body:after {
     background: #ddd;
     top: 0;
     left: 11px;
-    z-index: -1;
-}
-/* weather */
-.weather {
-    background: #3baa24;
-    color: #fff;
 }
 /* section */
 .section {
@@ -174,7 +168,7 @@ body:after {
 .map-destination {
     vertical-align: middle;
     height: 24px;
-    width: 80px;
+    width: 120px;
     border: 1px solid #ddd;
     margin: 0;
     padding: 2px 5px;
@@ -257,4 +251,23 @@ body:after {
     float:left;
     overflow: hidden;
     -webkit-box-sizing:border-box;
+}
+
+/* weather */
+.weather .box-shadow{
+    text-align: center;
+    padding: 15px 0px;
+    background: #f9f9f9;
+}
+.weather .weather-date {
+    font-size: 18px;
+}
+.weather .s-title, .weather .s-circle:after {
+    background: rgb(194,136,106);
+}
+.weather .s-title:after {
+    border-right-color: rgb(194,136,106);
+}
+.weather .s-circle {
+    border-color: rgb(194,136,106);
 }
