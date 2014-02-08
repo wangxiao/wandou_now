@@ -37,7 +37,7 @@ void function() {
         });
     }
 
-    // 豆瓣电影
+    // 附近视频
     function createVideo() {
         wandoujiaApi.video().done(function(list) {
             var data = {};
@@ -123,6 +123,7 @@ void function() {
     }
 
     // 主逻辑
+    wandoujiaApi.weather();
     getLocation();
     var mapFunction = createNewMap('普天德胜大厦', getDestination());
     createDianping();

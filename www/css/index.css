@@ -24,6 +24,12 @@ body:after {
     background: #ddd;
     top: 0;
     left: 11px;
+    z-index: -1;
+}
+/* weather */
+.weather {
+    background: #3baa24;
+    color: #fff;
 }
 /* section */
 .section {
