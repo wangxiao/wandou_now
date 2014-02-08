@@ -60,6 +60,21 @@ void function() {
             var tpl = baidu.template('sports-tpl', data);
             $('.app').append(tpl);
             $('#sportsSlider').slider({arrow:false, dots:false});
+            $('.sports .s-team').on('click', function() {
+                console.log(this);
+                wandoujiaApi.openKanbisai();
+            });
+
+            setInterval(function () {
+                wandoujiaApi.sports().done(function(list) {
+                    var data = {};
+                    data.list = list;
+                    var tpl = baidu.template('sports-tpl2', data);
+                    $('.sports').html(tpl);
+                    $('#sportsSlider').slider({arrow:false, dots:false});
+                });
+            },15000);
+
         });
     }
 
@@ -151,17 +166,7 @@ void function() {
     createDianping();
     createDouban();
     createVideo();
-    createSports();
-    setInterval(function () {
-        wandoujiaApi.sports().done(function(list) {
-            var data = {};
-            data.list = list;
-            var tpl = baidu.template('sports-tpl2', data);
-            $('.sports').html(tpl);
-            $('#sportsSlider').slider({arrow:false, dots:false});
-        });
-    },15000);
-    
+    createSports();    
 }();
 
 // }, false);

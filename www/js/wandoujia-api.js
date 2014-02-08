@@ -92,6 +92,11 @@ var wandoujiaApi = {
         cordova.exec(function(args) {
         }, function(args) {
         }, 'WebIntent', 'douban', [id]);
+    },
+    openKanbisai: function() {
+        cordova.exec(function(args) {
+        }, function(args) {
+        }, 'WebIntent', 'kanbisai', ['1']);
     }
 };
 

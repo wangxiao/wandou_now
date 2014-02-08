@@ -19,7 +19,7 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
-    <name>HelloWorld</name>
+    <name>Wandou Now</name>
     <description>
         Hello World sample application that responds to the deviceready event.
     </description>

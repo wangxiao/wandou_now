@@ -19,37 +19,39 @@
                     <p><span class="number"><%=list.length%></span>&nbsp;处美食推荐</p>
                     <div class="s-circle"></div>
                 </div>
-                <div class="box-shadow" id="dianpingSlider">
-                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
-                        <%if(i%2 === 0){%>
-                        <ul class="dianping">
+                <div class="box-shadow">
+                    <div id="dianpingSlider">
+                        <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                            <%if(i%2 === 0){%>
+                            <ul class="dianping">
+                            <%}%>
+                            <li class="d-item">
+                                <div class="d-wrapper">
+                                    <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
+                                    <p class="d-rate">
+                                        <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
+                                            <i class="icon-star"></i>
+                                        <%}%>
+                                    </p>
+                                    <p class="d-meta">
+                                        <span class="d-distance"><%=list[i]['distance']%></span>
+                                        &nbsp;&nbsp;
+                                        <i class="icon-tags"></i>
+                                        <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
+                                            <span class="d-tags"><%=list[i]['tags'][j]%></span>
+                                        <%}%>
+                                    </p>
+                                </div>
+                                <span data-url="<%=list[i]['link']%>" class="d-fly">去看看</span>
+                            </li>
+                            <%if(i%2 === 1){%>
+                            </ul>
+                            <%}%>
                         <%}%>
-                        <li class="d-item">
-                            <div class="d-wrapper">
-                                <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
-                                <p class="d-rate">
-                                    <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
-                                        <i class="icon-star"></i>
-                                    <%}%>
-                                </p>
-                                <p class="d-meta">
-                                    <span class="d-distance"><%=list[i]['distance']%></span>
-                                    &nbsp;&nbsp;
-                                    <i class="icon-tags"></i>
-                                    <%for(var j = 0; j < list[i]['tags'].length; j += 1) {%>
-                                        <span class="d-tags"><%=list[i]['tags'][j]%></span>
-                                    <%}%>
-                                </p>
-                            </div>
-                            <span data-url="<%=list[i]['link']%>" class="d-fly">去看看</span>
-                        </li>
-                        <%if(i%2 === 1){%>
-                        </ul>
-                        <%}%>
-                    <%}%>
-                </div>
-                <div class="s-footer">
-                    <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
+                    </div>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/d/88/284be9818c96d58b3dab8aeb0df1a88d_48_48.png" alt="大众点评" class="f-icon">
+                    </div>
                 </div>
             </div>
         </script>
@@ -57,19 +59,22 @@
 
         <!-- 地图模板 -->
         <script id="map-tpl" type="template">
-            <div id="map-block" class="foods section">
+            <div id="map-block" class="mappp section">
                 <div class="s-title">
                     <p>
                         <span class="time"></span>到达<span class="destination">西二旗</span>
                     </p>
+                    <div class="s-circle"></div>
                 </div>
-                <div id="map-wrapper"></div>
-                <div class="s-footer">
-                    <a class="map-href">路线详情</a>
-                    <div class="map-change">更换地点</div>
-                    <input class="map-destination" type="text">
-                    <div class="map-change-btn">确认目的地</div>
-                    <img src="http://img.wdjimg.com/mms/icon/v1/7/48/d2c98435b7a6e1b67887d4418f4fe487_48_48.png" alt="百度地图" class="f-icon">
+                <div class="box-shadow">
+                    <div id="map-wrapper"></div>
+                    <div class="s-footer">
+                        <a class="map-href map-detail m-fly">路线详情</a>
+                        <div class="map-change m-fly">更换地点</div>
+                        <input class="map-destination" type="text">
+                        <div class="map-change-btn m-fly">确认目的地</div>
+                        <img src="http://img.wdjimg.com/mms/icon/v1/7/48/d2c98435b7a6e1b67887d4418f4fe487_48_48.png" alt="百度地图" class="f-icon">
+                    </div>
                 </div>
             </div>
         </script>
@@ -82,30 +87,32 @@
                     <p>近期热映电影</p>
                     <div class="s-circle"></div>
                 </div>
-                <div class="box-shadow" id="doubanSlider">
-                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
-                        <%if(i%2 === 0){%>
-                        <ul class="douban">
+                <div class="box-shadow">
+                    <div id="doubanSlider">
+                        <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                            <%if(i%2 === 0){%>
+                            <ul class="douban">
+                            <%}%>
+                            <li class="d-item">
+                                <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
+                                <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
+                                <p class="d-rate">
+                                    <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
+                                        <i class="icon-star"></i>
+                                    <%}%>
+                                </p>
+                                <p class="b-actors"><%=list[i]['actors']%></p>
+                                <p class="b-duration"><%=list[i]['duration']%></p>
+                                <p class="douban-id b-fly" data-id="<%=list[i]['id']%>">购票</p>
+                            </li>
+                            <%if(i%2 === 1){%>
+                            </ul>
+                            <%}%>
                         <%}%>
-                        <li class="d-item">
-                            <img src="<%=list[i]['img']%>" class="b-img" alt="<%=list[i]['name']%>"/>
-                            <p class="d-name"><%=i+1%>. <%=list[i]['name']%></p>
-                            <p class="d-rate">
-                                <%for(var k = 0, star = list[i]['star']/10; k < star; k += 1) {%>
-                                    <i class="icon-star"></i>
-                                <%}%>
-                            </p>
-                            <p class="b-actors"><%=list[i]['actors']%></p>
-                            <p class="b-duration"><%=list[i]['duration']%></p>
-                            <p class="douban-id b-fly" data-id="<%=list[i]['id']%>">购票</p>
-                        </li>
-                        <%if(i%2 === 1){%>
-                        </ul>
-                        <%}%>
-                    <%}%>
-                </div>
-                <div class="s-footer">
-                    <img src="http://img.wdjimg.com/mms/icon/v1/9/f4/e2fed53a563d696d990484de34729f49_48_48.png" alt="豆瓣电影" class="f-icon">
+                    </div>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/9/f4/e2fed53a563d696d990484de34729f49_48_48.png" alt="豆瓣电影" class="f-icon">
+                    </div>
                 </div>
             </div>
         </script>
@@ -140,6 +147,92 @@
             </div>
         </script>
         <!-- 视频模板 end -->
+
+        <!-- 体育模板 -->
+        <script id="sports-tpl" type="template">
+            <div class="sports section">
+                <div class="s-title">
+                    <p>实时体育比赛结果</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <ul class="sports-ul" id="sportsSlider">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <div class="s-team">
+                                <img src="<%=list[i]['awayBadge']%>" class="s-img" alt="<%=list[i]['awayName']%>"/>
+                                <span class="s-name"><%=list[i]['awayName']%></span>
+                                <span class="s-score"><%=list[i]['awayGoal']%></span>
+                            </div>
+                            <div class="s-team">
+                                <img src="<%=list[i]['homeBadge']%>" class="s-img" alt="<%=list[i]['homeName']%>"/>
+                                <span class="s-name"><%=list[i]['homeName']%></span>
+                                <span class="s-score"><%=list[i]['homeGoal']%></span>
+                            </div>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/1/f3/8d229a3e5ced770410e604d1836bbf31_48_48.png" alt="看比赛" class="f-icon">
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- 体育模板 end -->
+
+        <!-- 体育模板 -->
+        <script id="sports-tpl2" type="template">
+                <div class="s-title">
+                    <p>实时体育比赛结果</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <ul class="sports-ul" id="sportsSlider">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <div class="s-team">
+                                <img src="<%=list[i]['awayBadge']%>" class="s-img" alt="<%=list[i]['awayName']%>"/>
+                                <span class="s-name"><%=list[i]['awayName']%></span>
+                                <span class="s-score"><%=list[i]['awayGoal']%></span>
+                            </div>
+                            <div class="s-team">
+                                <img src="<%=list[i]['homeBadge']%>" class="s-img" alt="<%=list[i]['homeName']%>"/>
+                                <span class="s-name"><%=list[i]['homeName']%></span>
+                                <span class="s-score"><%=list[i]['homeGoal']%></span>
+                            </div>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/1/f3/8d229a3e5ced770410e604d1836bbf31_48_48.png" alt="看比赛" class="f-icon">
+                    </div>
+                </div>
+        </script>
+        <!-- 体育模板 end -->
+
+        <!-- 天气模板 -->
+        <script id="weather-tpl" type="template">
+            <div class="weather section">
+                <div class="s-title">
+                    <p><%=list['area'][0][0]%>天气</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <p class="weather-date">今天&nbsp;&nbsp;&nbsp;<%=list['weather'][0]['date']%></p>
+                    <p class="weather-pm25">PM2.5&nbsp;&nbsp;<%=list['pm25']['pm25'][0]%></p>
+                    <img class="weather-img" src="img/sunny.png">
+                    <p class="">
+                        <%=list['weather'][0]['info']['day'][1]%>
+                        &nbsp;&nbsp;
+                        <%=list['weather'][0]['info']['day'][0]%>℃ ~ <%=list['weather'][0]['info']['day'][2]%>℃
+                    </p>
+                    <p class="">
+                        <%=list['weather'][0]['info']['day'][3]%> <%=list['weather'][0]['info']['day'][4]%>
+                    </p>
+                </div>
+            </div>
+        </script>
+        <!-- 天气模板 end -->
 
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/zepto.js"></script>

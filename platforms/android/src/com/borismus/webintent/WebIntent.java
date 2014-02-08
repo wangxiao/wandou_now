@@ -41,8 +41,18 @@ public class WebIntent extends CordovaPlugin {
             this.callbackContext = callbackContext;
 
             Context ctx = this.cordova.getActivity().getApplicationContext();
+            if(action.equals("kanbisai")){
+                if (args.length() != 1) {
+                    //return new PluginResult(PluginResult.Status.INVALID_ACTION);
+                    callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
+                    return false;
+                }
 
-            if(action.equals("douban")){
+                startKanbisai(ctx);
+                callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK));
+                return true;
+            }
+            else if(action.equals("douban")){
                 if (args.length() != 1) {
                     //return new PluginResult(PluginResult.Status.INVALID_ACTION);
                     callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.INVALID_ACTION));
@@ -273,7 +283,25 @@ public class WebIntent extends CordovaPlugin {
 //        intent.putExtra("mid", cleanId);
 //        ctx.startActivity(intent);
     }
+    void startKanbisai(Context ctx){
 
+        Intent i;
+        PackageManager manager = ctx.getPackageManager();
+        try {
+            i = manager.getLaunchIntentForPackage("com.tencent.qqsports");
+            if (i == null)
+                throw new PackageManager.NameNotFoundException();
+
+            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//            i.setClassName("com.douban.movie", "com.douban.movie.app.SubjectActivity");
+//            i.setComponent(ComponentName.unflattenFromString("com.douban.movie.app.SubjectActivity"));
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+
+            ctx.startActivity(i);
+        } catch (PackageManager.NameNotFoundException e) {
+
+        }
+    }
     void sendBroadcast(String action, Map<String, String> extras) {
         Intent intent = new Intent();
         intent.setAction(action);

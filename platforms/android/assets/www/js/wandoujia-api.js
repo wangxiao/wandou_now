@@ -33,6 +33,16 @@ var app = {
 
 // 豌豆荚的 API
 var wandoujiaApi = {
+    weather: function() {
+        return jQuery.ajax({
+            type: 'get',
+            url: 'http://now.wandoulabs.com/weather',
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            timeout: 10000
+        });
+    },
     dianping: function() {
         return jQuery.ajax({
             type: 'get',
@@ -63,6 +73,16 @@ var wandoujiaApi = {
             timeout: 10000
         });
     },
+    sports: function() {
+        return jQuery.ajax({
+            type: 'get',
+            url: 'http://now.wandoulabs.com/sport',
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            timeout: 10000
+        });
+    },
     openWandoujiaMovie: function(movieId) {
         cordova.exec(function(args) {
         }, function(args) {
@@ -72,6 +92,11 @@ var wandoujiaApi = {
         cordova.exec(function(args) {
         }, function(args) {
         }, 'WebIntent', 'douban', [id]);
+    },
+    openKanbisai: function() {
+        cordova.exec(function(args) {
+        }, function(args) {
+        }, 'WebIntent', 'kanbisai', ['1']);
     }
 };
 
@@ -102,3 +127,5 @@ var baseApi = {
         return window.localStorage.getItem(item);
     }
 };
+
+
