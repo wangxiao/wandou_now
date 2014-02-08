@@ -33,6 +33,17 @@ var app = {
 
 // 豌豆荚的 API
 var wandoujiaApi = {
+    weather: function() {
+        return jQuery.ajax({
+            type: 'get',
+            url: 'http://cdn.weather.hao.360.cn/api_weather_info.php',
+            data: { app: 'hao360', code: '101010100', _jsonp: 'sb360'},
+            async: false,
+            contentType: 'application/json',
+            dataType: 'jsonp',
+            timeout: 10000
+        });
+    },
     dianping: function() {
         return jQuery.ajax({
             type: 'get',
@@ -101,4 +112,13 @@ var baseApi = {
     getStorage: function(item) {
         return window.localStorage.getItem(item);
     }
+};
+
+// 天气
+var sb360 = function (list) {
+    console.log(list);
+    var data = {};
+    data.list = list;
+    var tpl = baidu.template('weather-tpl', data);
+    $('.app').prepend(tpl);
 };
