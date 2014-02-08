@@ -234,6 +234,38 @@ body:after {
     margin: 10px 0;
 }
 
+/* video */
+
+.sports .s-title, .sports .s-circle:after {
+    background: rgb(239,77,80);
+}
+.sports .s-title:after {
+    border-right-color: rgb(239,77,80);
+}
+.sports .s-circle {
+    border-color: rgb(239,77,80);
+}
+.sports-ul {
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    list-style-type: none;
+}
+.s-img {
+    height: 34px;
+    vertical-align: middle;
+    margin: 0 15px;
+}
+.s-name,.s-score {
+    font-size: 24px;
+    line-height: 34px;
+    vertical-align: middle;
+}
+.s-score {
+    float: right;
+    margin-right: 15px;
+}
+
 .ui-slider {
     overflow: hidden;
     position: relative;

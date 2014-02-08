@@ -148,6 +148,68 @@
         </script>
         <!-- 视频模板 end -->
 
+        <!-- 体育模板 -->
+        <script id="sports-tpl" type="template">
+            <div class="sports section">
+                <div class="s-title">
+                    <p>实时体育比赛结果</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <ul class="sports-ul" id="sportsSlider">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <div class="s-team">
+                                <img src="<%=list[i]['awayBadge']%>" class="s-img" alt="<%=list[i]['awayName']%>"/>
+                                <span class="s-name"><%=list[i]['awayName']%></span>
+                                <span class="s-score"><%=list[i]['awayGoal']%></span>
+                            </div>
+                            <div class="s-team">
+                                <img src="<%=list[i]['homeBadge']%>" class="s-img" alt="<%=list[i]['homeName']%>"/>
+                                <span class="s-name"><%=list[i]['homeName']%></span>
+                                <span class="s-score"><%=list[i]['homeGoal']%></span>
+                            </div>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/1/f3/8d229a3e5ced770410e604d1836bbf31_48_48.png" alt="看比赛" class="f-icon">
+                    </div>
+                </div>
+            </div>
+        </script>
+        <!-- 体育模板 end -->
+
+        <!-- 体育模板 -->
+        <script id="sports-tpl2" type="template">
+                <div class="s-title">
+                    <p>实时体育比赛结果</p>
+                    <div class="s-circle"></div>
+                </div>
+                <div class="box-shadow">
+                    <ul class="sports-ul" id="sportsSlider">
+                    <%for(var i = 0, l = list.length; i < l; i += 1) {%>
+                        <li class="d-item">
+                            <div class="s-team">
+                                <img src="<%=list[i]['awayBadge']%>" class="s-img" alt="<%=list[i]['awayName']%>"/>
+                                <span class="s-name"><%=list[i]['awayName']%></span>
+                                <span class="s-score"><%=list[i]['awayGoal']%></span>
+                            </div>
+                            <div class="s-team">
+                                <img src="<%=list[i]['homeBadge']%>" class="s-img" alt="<%=list[i]['homeName']%>"/>
+                                <span class="s-name"><%=list[i]['homeName']%></span>
+                                <span class="s-score"><%=list[i]['homeGoal']%></span>
+                            </div>
+                        </li>
+                    <%}%>
+                    </ul>
+                    <div class="s-footer">
+                        <img src="http://img.wdjimg.com/mms/icon/v1/1/f3/8d229a3e5ced770410e604d1836bbf31_48_48.png" alt="看比赛" class="f-icon">
+                    </div>
+                </div>
+        </script>
+        <!-- 体育模板 end -->
+
         <!-- 天气模板 -->
         <script id="weather-tpl" type="template">
             <div class="weather section">
